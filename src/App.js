@@ -5,6 +5,11 @@ import TransactionHistory from "./components/TransactionHistory";
 
 function App() {
   const [amount, setAmount] = useState('');
+  useEffect(() => {
+    connectSocket((data) => {
+      alert(`Transaction ${data.txId} → ${data.status}`);
+    });
+  }, []);
 
   const makeTransaction = async () => {
     await fetch('http://localhost:8080/transaction', {
@@ -25,6 +30,7 @@ function App() {
       <Wallet />
       <TransactionForm />
       <TransactionHistory />
+      
     </div>
   );
 }
