@@ -1,24 +1,46 @@
-##  FRONTEND README (`wallet-frontend/README.md`)
+---
+
+# ✅ FRONTEND README (FINAL)
+
+📄 **`wallet-frontend/README.md`**
 
 ```md
 # Digital Wallet – Frontend (React)
 
-##  Overview
+## Overview
 This is the React frontend for the Digital Wallet application.
-It allows users to view wallet balance, make transactions, and view transaction history.
+It allows users to perform wallet transactions, view real-time
+transaction status updates, wallet balance, and transaction history.
+
+The frontend is fully integrated with a Kafka-powered backend
+and receives real-time updates via WebSocket.
 
 ---
 
-##  Architecture
-- React
-- Axios
-- REST API integration
-- Component-based design
+## Problems Covered
+
+### Problem 1: Digital Wallet UI
+- Wallet balance display
+- Transaction creation (credit/debit)
+- Transaction history list
+
+### Problem 2: Real-Time Transaction Status
+- Pending transactions
+- Live status updates (SUCCESS / FAILURE)
+- WebSocket-based notifications
 
 ---
 
-##  Project Structure
+## Architecture
 
+- React (Functional Components)
+- Axios for REST API calls
+- WebSocket (STOMP client)
+- Component-based UI design
+
+---
+
+## Project Structure
 
 src/
 ├── components/
@@ -26,53 +48,74 @@ src/
 │ ├── TransactionForm.js
 │ └── TransactionHistory.js
 ├── services/
-│ └── api.js
-└── App.js
+│ ├── api.js
+│ └── socket.js
+├── App.js
+└── index.js
 
+yaml
+Copy code
 
 ---
 
-##  Setup Instructions
+## Setup Instructions
 
-### 1️ Prerequisites
+### 1️⃣ Prerequisites
 - Node.js (v16+)
 - npm
 
-### 2️ Install Dependencies
-```bash
-npm install
-
-3️ Start Application
-npm start
-
-
-Frontend runs on:
-
-http://localhost:3000
-
-### Backend Integration
-
-Backend base URL:
-
-http://localhost:8080
-
-## Status
-
-Frontend is fully integrated with backend APIs.
-
-
 ---
 
-#  PART 5: Short Design Explanation (INTERVIEW READY)
+### 2️⃣ Install Dependencies
 
-###  Add this in **both README or submission text**
+```bash
+npm install
+3️⃣ Start Frontend
+bash
+Copy code
+npm start
+Frontend runs on:
 
-```md
-##  Design Decisions
+arduino
+Copy code
+http://localhost:3000
+Backend Integration
+Base URL:
 
-- Backend follows layered architecture (Controller → Service → Repository) for clean separation of concerns.
-- RESTful APIs are used for frontend-backend communication.
-- React frontend is component-based for reusability and maintainability.
-- Axios is used for API calls for cleaner HTTP handling.
-- CORS is configured globally to allow secure frontend access.
-- MySQL is used for persistent storage of wallet and transactions.
+arduino
+Copy code
+http://localhost:8080
+WebSocket Endpoint:
+
+bash
+Copy code
+ws://localhost:8080/ws
+Subscribed Topic:
+
+bash
+Copy code
+/topic/transaction-status
+Features
+Wallet balance auto-refresh
+
+Asynchronous transaction processing
+
+Real-time transaction status alerts
+
+Clean and modular UI components
+
+Design Decisions
+React functional components for simplicity
+
+Separation of concerns using services folder
+
+Axios for clean HTTP handling
+
+WebSocket for real-time updates
+
+Reusable UI components
+
+Status
+✅ Frontend fully integrated with backend
+✅ Real-time updates working
+✅ Production-ready structure
