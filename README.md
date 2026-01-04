@@ -1,8 +1,8 @@
 ---
 
-# ✅ FRONTEND README (FINAL)
+#  FRONTEND README 
 
-📄 **`wallet-frontend/README.md`**
+
 
 ```md
 # Digital Wallet – Frontend (React)
